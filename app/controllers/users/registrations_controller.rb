@@ -8,6 +8,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def show
+    @User = User.find(params[:id])
+    @posts = Post.where(user_id: params[:id])
   end
 
   # POST /resource

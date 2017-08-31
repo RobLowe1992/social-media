@@ -28,4 +28,5 @@ class User < ApplicationRecord
   def following?(user)
     following.include?(user)
   end
+
 end
