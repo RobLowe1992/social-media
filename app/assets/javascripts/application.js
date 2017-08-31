@@ -22,6 +22,10 @@ $('ul.sidebar-menu li.sub').click(function() {
     $('this').addClass('active');
 })
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 
-
-
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})

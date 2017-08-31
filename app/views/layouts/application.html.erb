@@ -31,7 +31,7 @@
               <% if @User.image.url(:thumb) == '/images/thumb/profile.png'%>
                 <%= image_tag 'profile.png', class: 'avatar', size: '65x65' %>
               <% else %>
-                <%= image_tag @User.image.url(:thumb), class: 'avatar', size: '65x65'%>
+                <%= image_tag current_user.image.url(:thumb), class: 'avatar', size: '65x65'%>
               <% end %>
 
             </div>
@@ -50,50 +50,58 @@
     <!--<p class="notice"><%= notice %></p>-->
     <!--<p class="alert"><%= alert %></p>-->
 
-    <div class="row">
-    <section class="viewport col-xs-12 col-sm-12 col-md-10 col-lg-10">
-      <%= yield %>
-    </section>
-    <aside class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-      <div id="sidebar"  class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu">
-          <li class="sub active">
-            <a class="" href="<%= homes_path %>">
-              <i class="icon_house_alt"></i>
-              <span>Home</span>
-            </a>
-          </li>
-          <li class="sub">
-            <a href="<%= posts_path %>" class="">
-              <i class="icon_document_alt"></i>
-              <span>Posts</span>
-            </a>
-          </li>
-          <li class="sub">
-            <a href="javascript:;" class="">
-              <i class="icon_desktop"></i>
-              <span>Followers</span>
-            </a>
-          </li>
-          <li>
-            <!--<a class="" href="widgets.html">-->
-              <!--<i class="icon_genius"></i>-->
-              <!--<span>Widgets</span>-->
-            <!--</a>-->
-          <!--</li>-->
-          <!--<li>-->
-            <!--<a class="" href="chart-chartjs.html">-->
-              <!--<i class="icon_piechart"></i>-->
-              <!--<span>Charts</span>-->
+    <% if user_signed_in? %>
+      <div class="row">
+        <section class="viewport col-xs-8 col-sm-9 col-md-9 col-lg-10">
+          <%= yield %>
+        </section>
+        <aside class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
+          <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu">
+              <li class="sub active">
+                <a class="" href="<%= homes_path %>">
+                  <i class="icon_house_alt"></i>
+                  <span>Home</span>
+                </a>
+              </li>
+              <li class="sub">
+                <a href="<%= posts_path %>" class="">
+                  <i class="icon_document_alt"></i>
+                  <span>Posts</span>
+                </a>
+              </li>
+              <li class="sub">
+                <a href="javascript:;" class="">
+                  <i class="icon_desktop"></i>
+                  <span>Followers</span>
+                </a>
+              </li>
+              <li>
+                <!--<a class="" href="widgets.html">-->
+                  <!--<i class="icon_genius"></i>-->
+                  <!--<span>Widgets</span>-->
+                <!--</a>-->
+              <!--</li>-->
+              <!--<li>-->
+                <!--<a class="" href="chart-chartjs.html">-->
+                  <!--<i class="icon_piechart"></i>-->
+                  <!--<span>Charts</span>-->
 
-            <!--</a>-->
+                <!--</a>-->
 
-          </li>
-        </ul>
-        <!-- sidebar menu end-->
+              </li>
+            </ul>
+            <!-- sidebar menu end-->
+          </div>
+        </aside>
       </div>
-    </aside>
-    </div>
+    <% else %>
+      <div class="row">
+        <section class="viewport col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= yield %>
+        </section>
+      </div>
+    <% end %>
   </body>
 </html>

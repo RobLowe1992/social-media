@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
+  # get 'friendships/:create'
+  # get 'friendships/:destroy'
 
+  root 'homes#index'
   resources :posts, except: :show
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   devise_scope :user do
-    get 'users/:id' => 'users/registrations#show'
+    get 'users/:id' => 'users/registrations#show', as: 'users'
   end
-
-  root 'homes#index'
   resources :homes, only: :index
+  resources :friendships, only: [:create, :destroy]
 
 
 end
