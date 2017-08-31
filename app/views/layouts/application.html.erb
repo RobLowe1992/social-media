@@ -28,7 +28,7 @@
                   <%= link_to('Edit Profile', edit_user_registration_path, class: 'auth-buttons') %>
                 </li>
               </ul>
-              <% if @User.image.url(:thumb) == '/images/thumb/missing.png'%>
+              <% if @User.image.url(:thumb) == '/images/thumb/profile.png'%>
                 <%= image_tag 'profile.png', class: 'avatar', size: '65x65' %>
               <% else %>
                 <%= image_tag @User.image.url(:thumb), class: 'avatar', size: '65x65'%>

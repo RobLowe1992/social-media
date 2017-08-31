@@ -1,7 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <% @posts.each do | post | %>
-    <p><%= post.content %></p>
+    <div class="panel-body">
+      <ul class="chat">
+        <li class="right clearfix">
+          <span class="chat-img pull-left">
+            <% if @User.image.url(:thumb) == '/images/thumb/missing.png' %>
+              <%= image_tag 'profile.png', class: 'avatar img-circle', size: '50x50', alt: 'User Avatar' %>
+            <% else %>
+              <%= image_tag current_user.image.url(:icon), class: 'avatar img-circle', size: '50x50', alt: 'User Avatar' %>
+            <% end %>
+          </span>
+          <div class="chat-body clearfix">
+            <div class="header">
+              <strong class="primary-font"><%= current_user.first_name %></strong> <small class="pull-right text-muted">
+              <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+            </div>
+            <p><%= post.content %></p>
+          </div>
+        </li>
+      </ul>
+    </div>
 <% end %>
 
 <%= link_to 'New Post', new_post_path %>
