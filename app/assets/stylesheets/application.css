@@ -1,0 +1,556 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ body {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+ }
+
+header {
+    height: 75px;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    background-color: #1abc9c;
+    color: #ffffff;
+    justify-content: center;
+    z-index: 1;
+    border-bottom: 1px solid #238673;
+}
+a:hover {
+    background-color: transparent;
+}
+
+.viewport {
+    position: absolute;
+}
+
+.notice {
+    position: absolute;
+    right: 1em;
+    top: 7em;
+}
+.alert {
+    position: absolute;
+    right: 1em;
+    top: 8em;
+}
+
+header .logo {
+    height: 100%;
+}
+header .auth {
+    height: 100%;
+    list-style: none;
+    display: flex;
+}
+div.dropdown {
+    position: absolute;
+    right: 3em;
+    top: 1.5em;
+    display: inline-flex;
+}
+
+div.dropdown img.avatar {
+    border-radius: 50%;
+    position: relative;
+    bottom: 1.2em;
+    margin-left: 2em;
+}
+
+a.dropdown-toggle:hover {
+    background-color: transparent;
+    cursor: pointer;
+}
+a.dropdown-toggle {
+    background-color: transparent;
+    cursor: pointer;
+    transition: ;
+}
+a.new-post {
+    font-size: 3em;
+    color: #ffffff;
+    position: relative;
+    bottom: .48em;
+    right: .75em;
+}
+
+a.new-post:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+ul.dropdown-menu {
+    position: absolute;
+    width: 100px;
+    top: 3.62em;
+    left: 2em;
+}
+
+ul.hide-dropdown {
+    /*left:11em;*/
+}
+
+span.glyphicon-cog {
+    position: relative;
+    font-size: 2em;
+    right: 0;
+    color: #ffffff;
+}
+
+header .auth-buttons {
+    float: right;
+    width: 100%;
+    min-height: 40px;
+}
+header .welcome-btns {
+    display: flex;
+    margin-top: 1.5em;
+    right: 0;
+}
+
+header .welcome-btns .welcome-btn {
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+header .welcome-btns .welcome-btn:nth-of-type(1){
+    position: relative;
+    margin-right: 2em;
+}
+
+header .welcome-btns .welcome-btn:hover {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+section.viewport {
+    margin: 7em auto 0 auto;
+}
+
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 100vw !;
+        padding: 0 5vw;
+    }
+}
+
+.success{
+    background: #dff0d8;
+    border: 1px solid #3c763d;
+    border-radius: 2px;
+}
+.warning{
+    background: #fcf8e3;
+    border: 1px solid #ec971f;
+    border-radius: 2px;
+}
+.danger{
+    background: #f2dede;
+    border: 1px solid #ebccd1;
+    border-radius: 2px;
+}
+
+
+
+#sidebar {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: fixed;
+
+    background: #394a59;
+
+}
+
+
+
+.nav-collapse.collapse {
+
+    display: inline;
+
+}
+
+
+
+ul.sidebar-menu , ul.sidebar-menu li ul.sub{
+
+    margin: -2px 0 0;
+
+    padding: 0;
+
+}
+
+
+
+ul.sidebar-menu {
+
+    margin-top: 75px;
+    list-style: none;
+
+}
+
+
+
+#sidebar > ul > li > ul.sub {
+
+    display: none;
+
+}
+
+
+
+#sidebar > ul > li.active > ul.sub, #sidebar > ul > li > ul.sub > li > a {
+
+    display: block;
+
+}
+
+
+
+ul.sidebar-menu li ul.sub li{
+
+    background: #394a59;
+
+    margin-bottom: 0;
+
+    margin-left: 0;
+
+    margin-right: 0;
+
+}
+
+
+
+ul.sidebar-menu li ul.sub li:last-child{
+
+    border-radius: 0 0 4px 4px;
+
+    -webkit-border-radius: 0 0 4px 4px;
+
+}
+
+
+
+ul.sidebar-menu li ul.sub li a {
+
+    font-size: 12px;
+
+    padding: 0 0 0 32px;
+
+    line-height: 35px;
+
+    height: 35px;
+
+    -webkit-transition: all 0.3s ease;
+
+    -moz-transition: all 0.3s ease;
+
+    -o-transition: all 0.3s ease;
+
+    -ms-transition: all 0.3s ease;
+
+    transition: all 0.3s ease;
+
+    color: #d0d8df;
+
+    font-size: 14px;
+
+}
+
+
+
+ul.sidebar-menu li ul.sub li a:hover, ul.sidebar-menu li ul.sub li.active a {
+
+    color: #fff;
+
+    -webkit-transition: all 0.3s ease;
+
+    -moz-transition: all 0.3s ease;
+
+    -o-transition: all 0.3s ease;
+
+    -ms-transition: all 0.3s ease;
+
+    transition: all 0.3s ease;
+
+    display: block;
+
+}
+
+
+
+ul.sidebar-menu li{
+
+    line-height: 20px !important;
+
+    /*margin-bottom: 5px;
+
+    margin-left:10px;
+
+    margin-right:10px;*/
+
+
+
+}
+
+/*ul.sidebar-menu li:hover{
+
+    border-bottom: 1px solid #688a7e;
+
+}*/
+
+ul.sidebar-menu li.sub-menu{
+
+    line-height: 15px;
+
+    font-size: 16px;
+
+}
+
+
+
+ul.sidebar-menu li a span{
+
+    display: inline-block;
+
+}
+
+
+
+ul.sidebar-menu li a{
+
+    color: #d0d8df;
+
+    text-decoration: none;
+
+    display: block;
+
+    padding: 15px 0 15px 10px;
+
+    font-size: 16px;
+
+    font-weight: 300;
+
+    outline: none;
+
+    -webkit-transition: all 0.3s ease;
+
+    -moz-transition: all 0.3s ease;
+
+    -o-transition: all 0.3s ease;
+
+    -ms-transition: all 0.3s ease;
+
+    transition: all 0.3s ease;
+
+    border-right: 1px solid #D7D7D7;
+
+    border-bottom: 1px solid #D7D7D7;
+
+}
+
+/*ul.sidebar-menu li a i{
+
+    position: relative;
+
+    top: 2px;
+
+}*/
+
+ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
+
+    /*background: #2e3b46;*/
+
+    color: #fff;
+
+    display: block;
+
+    /*border-radius: 4px;
+
+    -webkit-border-radius: 4px;*/
+
+    -webkit-transition: all 0.3s ease;
+
+    -moz-transition: all 0.3s ease;
+
+    -o-transition: all 0.3s ease;
+
+    -ms-transition: all 0.3s ease;
+
+    transition: all 0.3s ease;
+
+}
+
+ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
+
+    border-bottom: 1px solid #d0d8df;
+    background-color: #1abc9c;
+
+}
+
+ul.sidebar-menu li.active a, ul.sidebar-menu .sub-menu li.active a{
+
+    border-bottom: 1px solid #d0d8df;
+
+}
+
+
+
+ul.sidebar-menu li a i {
+
+    font-size: 18px;
+
+    padding-right: 6px;
+
+    /*color: #688a7e;*/
+
+}
+
+
+
+ul.sidebar-menu li a:hover i, ul.sidebar-menu li a:focus i {
+
+    color: #fff;
+
+}
+
+
+
+ul.sidebar-menu li.active a i {
+
+    color: #fff;
+
+}
+
+
+
+
+
+#sidebar ul > li > a .arrow {
+
+    border-bottom: 4px solid transparent;
+
+    border-left: 4px solid #A0A0A0;
+
+    border-top: 4px solid transparent;
+
+    float: right;
+
+    height: 0;
+
+    margin-right: 10px;
+
+    margin-top: 6px;
+
+    width: 0;
+
+}
+
+#sidebar ul > li > a .menu-arrow {
+
+    float: right;
+
+    margin-right: 8px;
+
+    margin-top: 6px;
+
+}
+
+#sidebar > ul > li > a .arrow.open {
+
+    border-left: 4px solid transparent;
+
+    border-right: 4px solid transparent;
+
+    border-top: 5px solid #A0A0A0;
+
+    float: right;
+
+    height: 0;
+
+    margin-right: 10px;
+
+    margin-top: 8px;
+
+    width: 0;
+
+}
+
+
+
+#sidebar ul > li.active > a .arrow, #sidebar ul > li > a:hover .arrow, #sidebar ul > li > a:focus .arrow {
+
+    float: right;
+
+    margin-top: 6px;
+
+    margin-right: 10px;
+
+    width: 0;
+
+    height: 0;
+
+    border-left: 4px solid #d0d8df;
+
+    border-top: 4px solid transparent;
+
+    border-bottom: 4px solid transparent;
+
+}
+
+
+
+#sidebar > ul > li.active > a .arrow.open, #sidebar > ul > li > a:hover .arrow.open, #sidebar > ul > li > a:focus .arrow.open {
+
+    float: right;
+
+    margin-top: 8px;
+
+    margin-right: 10px;
+
+    width: 0;
+
+    height: 0;
+
+    border-top: 5px solid #d0d8df;
+
+    border-left: 4px solid transparent;
+
+    border-right: 4px solid transparent;
+
+}
+
+
+
+.mail-info, .mail-info:hover {
+
+    margin: 3px 6px 0 0;
+
+    font-size: 11px;
+
+}
+
+

@@ -1,0 +1,28 @@
+// Place all the styles related to the Homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+
+    .left {
+        width: 50%;
+        height: 100%;
+        background: url("https://static.pexels.com/photos/120248/pexels-photo-120248.jpeg");
+        background-position: 100% 50%;
+        transform: scale(1,1);
+
+
+    }
+    .right{
+        width: 50vw;
+        height: 100vh;
+        background-color: #ccc;
+
+        ul.auth {
+            list-style: none;
+        }
+    }
+}
