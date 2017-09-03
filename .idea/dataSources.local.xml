@@ -9,7 +9,7 @@
       <introspection-schemas>Social-Network_test:public</introspection-schemas>
     </data-source>
     <data-source name="Rails Social-Network: development" uuid="d8809fe1-58fd-4481-bae8-6558b222f13e">
-      <database-info product="PostgreSQL" version="9.6.3" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
+      <database-info product="PostgreSQL" version="9.5.9" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />

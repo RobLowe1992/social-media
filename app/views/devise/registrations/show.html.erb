@@ -17,7 +17,7 @@
             <% if @User.image.url(:thumb) == '/images/thumb/missing.png' %>
                 <%= image_tag 'profile.png', class: 'media-object img-circle', size: '50x50', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;' %>
             <% else %>
-                <%= image_tag @User.image.url(:thumb), class: 'avatar img-circle', size: '50x50', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;' %>
+                <%= image_tag @User.image.url(:medium), class: 'avatar img-circle', size: '75x75', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;' %>
             <% end %>
           </a>
         </div>
@@ -27,7 +27,6 @@
             <div class="dropdown">
               <button class="btn btn-link btn-xs dropdown-toggle" type="button" id="dd1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <i class="fa fa-cog" aria-hidden="true"></i>
-                <span class="caret"></span>
               </button>
               <!--<ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">-->
               <!--<li><a href="#"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> Report</a></li>-->
@@ -47,12 +46,9 @@
         <hr>
         <div>
           <div class="pull-right btn-group-xs">
-            <a class="btn btn-default btn-xs"><i class="fa fa-heart" aria-hidden="true"></i> Like</a>
+            <a class="like-btn"><i class="glyphicon glyphicon-heart" aria-hidden="true" style="color: darkred"></i></a>
             <a class="btn btn-default btn-xs"><i class="fa fa-retweet" aria-hidden="true"></i> Reshare</a>
             <a class="btn btn-default btn-xs"><i class="fa fa-comment" aria-hidden="true"></i> Comment</a>
-          </div>
-          <div class="pull-left">
-            <p class="text-muted" style="margin-left:5px;"><i class="fa fa-globe" aria-hidden="true"></i> Public</p>
           </div>
           <br>
         </div>
@@ -60,10 +56,10 @@
         <div class="media">
           <div class="pull-left">
             <a href="#">
-              <% if @User.image.url(:thumb) == '/images/thumb/missing.png' %>
-                  <%= image_tag 'profile.png', class: 'media-object img-circle', size: '35x35', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;'  %>
+              <% if current_user.image.url(:medium) == '/images/medium/missing.png' %>
+                  <a href="<%= users_path current_user %>"><%= image_tag 'profile.png', class: 'media-object img-circle', size: '35x35', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;'  %></a>
               <% else %>
-                  <%= image_tag current_user.image.url(:thumb), class: 'media-object img-circle', size: '35x35', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;'  %>
+                  <a href="<%= users_path current_user %>"><%= image_tag current_user.image.url(:medium), class: 'media-object img-circle', size: '50x50', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;'  %></a>
               <% end %>
             </a>
           </div>

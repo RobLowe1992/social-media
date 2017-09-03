@@ -554,3 +554,10 @@ ul.sidebar-menu li.active a i {
 }
 
 
+.like-btn {
+    position: absolute;
+    left: 2em;
+}
+div.panel {
+    position: relative;
+}

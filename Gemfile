@@ -76,3 +76,6 @@ gem 'jquery-atwho-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
+
+# Name Generator
+gem 'faker', '~> 1.6', '>= 1.6.6'

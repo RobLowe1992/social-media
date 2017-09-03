@@ -138,5 +138,25 @@ div.btn-group-xs a.btn {
 
 body {
   background-color: #e8e8e8;
->>>>>>> new_master
+}
+
+.panel-default {
+  position: absolute;
+}
+.edit {
+  position: absolute;
+  top: 1.8em;
+  right: 4em;
+  font-size: 1.5em;
+}
+
+.likes {
+  position: absolute;
+  left: 2em;
+}
+
+@media only screen and (max-width: 600px) {
+  .edit {
+    top: 3.1em;
+  }
 }

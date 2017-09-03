@@ -28,10 +28,10 @@
                   <%= link_to('Edit Profile', edit_user_registration_path, class: 'auth-buttons') %>
                 </li>
               </ul>
-              <% if @User.image.url(:thumb) == '/images/thumb/profile.png'%>
-                <%= image_tag 'profile.png', class: 'avatar', size: '65x65' %>
+              <% if current_user.image.url(:medium) == '/images/medium/missing.png'%>
+                  <%= image_tag 'profile.png', class: 'avatar', size: '65x65' %>
               <% else %>
-                <%= image_tag current_user.image.url(:thumb), class: 'avatar', size: '65x65'%>
+                  <%= image_tag current_user.image.url(:medium), class: 'avatar', size: '65x65'%>
               <% end %>
 
             </div>
@@ -75,6 +75,18 @@
                 <a href="javascript:;" class="">
                   <i class="icon_desktop"></i>
                   <span>Followers</span>
+                </a>
+              </li>
+              <li class="sub">
+                <a href="" class="">
+                  <strong><%= current_user.followers.count%></strong>
+                  Followers
+                </a>
+              </li>
+              <li class="sub">
+                <a href="" class="">
+                  <strong><%= current_user.following.count%></strong>
+                  Following
                 </a>
               </li>
               <li>
