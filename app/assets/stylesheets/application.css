@@ -751,3 +751,6 @@ span.input-group-addon i {
     text-align: center;
 }
 
+input.follow, input.unfollow {
+    margin-bottom: 1em;
+}
