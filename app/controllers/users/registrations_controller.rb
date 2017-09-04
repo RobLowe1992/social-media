@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def show
     @User = User.find(params[:id])
-    @posts = Post.where(user_id: params[:id])
+    @posts = Post.where(user_id: params[:id]).order(created_at: :desc)
   end
 
   # POST /resource

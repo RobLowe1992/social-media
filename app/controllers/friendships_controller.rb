@@ -3,17 +3,18 @@ class FriendshipsController < ApplicationController
   before_action :find_user
 
   def create
-    user = User.find(params[:followed_id])
-    current_user.follow(user)
-    redirect_to users_path user
+    current_user.follow(@User)
+    redirect_to users_path @User
   end
 
   def destroy
-    user = Friendship.find(params[:id]).followed
-    current_user.unfollow(user)
-    redirect_to users_path user
+    current_user.unfollow(@User)
+    redirect_to users_path @User
   end
 
   private
 
+  def find_user
+    @User = User.find(params[:user_id])
+  end
 end

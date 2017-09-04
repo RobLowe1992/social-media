@@ -1,5 +1,76 @@
 <div class="home">
   <p id="notice"><%= notice %></p>
+  <% if current_user %>
+      <% @User.feed.each do | post | %>
+          <div class="panel panel-default"style="display: block">
+            <div class="panel-body">
+              <div class="pull-left">
+                <a href="#">
+                  <% if post.user.image.url(:thumb) == '/images/thumb/missing.png' %>
+                      <%= image_tag 'profile.png', class: 'media-object img-circle', size: '50x50', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;' %>
+                  <% else %>
+                      <%= image_tag post.user.image.url(:thumb), class: 'avatar img-circle', size: '50x50', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;' %>
+                  <% end %>
+                </a>
+              </div>
+              <h4><a href="#" style="text-decoration:none;"><strong><%= post.user.full_name %></strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a>
+                <% if current_user == post.user %>
+                    <%= link_to 'Edit', edit_post_path(@User), class: 'edit' %>
+                <% end %></small></small>
+              </h4>
+              <span>
+                <div class="navbar-right">
+                  <div class="dropdown">
+                    <!--<ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">-->
+                    <!--<li><a href="#"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> Report</a></li>-->
+                    <!--<li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignore</a></li>-->
+                    <!--<li><a href="#"><i class="fa fa-fw fa-bell" aria-hidden="true"></i> Enable notifications for this post</a></li>-->
+                    <!--<li><a href="#"><i class="fa fa-fw fa-eye-slash" aria-hidden="true"></i> Hide</a></li>-->
+                    <!--<li role="separator" class="divider"></li>-->
+                    <!--<li><a href="#"><i class="fa fa-fw fa-trash" aria-hidden="true"></i> Delete</a></li>-->
+                    <!--</ul>-->
+                  </div>
+                </div>
+              </span>
+              <hr>
+              <div class="post-content">
+                <p><%= post.content %></p>
+              </div>
+              <hr>
+              <div>
+                <div class="pull-right btn-group-xs">
+                  <a class="likes"><i class="glyphicon glyphicon-heart" aria-hidden="true" style="color:darkred"></i></a>
+                  <a class="btn btn-default btn-xs"><i class="fa fa-retweet" aria-hidden="true"></i> Reshare</a>
+                  <a class="btn btn-default btn-xs"><i class="fa fa-comment" aria-hidden="true"></i> Comment</a>
+                </div>
+                <div class="pull-left">
+                  <p class="text-muted" style="margin-left:5px;">
+                    <i class="fa fa-globe" aria-hidden="true"></i>
 
+                  </p>
+                </div>
+                <br>
+              </div>
+              <hr>
+              <div class="media">
+                <div class="pull-left">
+                  <a href="#">
+                    <% if current_user.image.url(:thumb) == '/images/thumb/missing.png' %>
+                        <%= image_tag 'profile.png', class: 'media-object img-circle', size: '35x35', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;'  %>
+                    <% else %>
+                        <%= image_tag current_user.image.url(:thumb), class: 'media-object img-circle', size: '35x35', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;'  %>
+                    <% end %>
+                  </a>
+                </div>
+                <div class="media-body">
+                  <textarea class="form-control" rows="1" placeholder="Comment"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+  <% else %>
+      <div></div>
+  <% end %>
 </div>
 

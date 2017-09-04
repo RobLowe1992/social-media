@@ -46,7 +46,10 @@
         <hr>
         <div>
           <div class="pull-right btn-group-xs">
-            <a class="like-btn"><i class="glyphicon glyphicon-heart" aria-hidden="true" style="color: darkred"></i></a>
+            <span class="like-btn">
+              <a class="glyphicon glyphicon-heart" aria-hidden="true" style="color: darkred"></a>
+              <strong><%= post.likes %></strong>
+            </span>
             <a class="btn btn-default btn-xs"><i class="fa fa-retweet" aria-hidden="true"></i> Reshare</a>
             <a class="btn btn-default btn-xs"><i class="fa fa-comment" aria-hidden="true"></i> Comment</a>
           </div>

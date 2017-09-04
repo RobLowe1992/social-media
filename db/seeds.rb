@@ -8,9 +8,13 @@
 
 100.times do | n |
   email = "example-#{n+1}@gmail.com"
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+
   user = User.create(
-          first_name: Faker::Name.first_name,
-          last_name: Faker::Name.last_name,
+          first_name: first_name,
+          last_name: last_name,
+          full_name: first_name + ' ' + last_name,
           email: email,
           password: "password",
           password_confirmation: "password",
@@ -32,5 +36,16 @@ end
 users = User.all
 following = users[1..50]
 followers = users[51..100]
-following.each { | followed | followers.each { | follower | follower.follow(followed)}}
-followers.each { | follower | following.each { | followed | followed.follow(follower)}}
+following.each do | followed |
+  followers.each do | follower |
+    follower.follow(followed)
+    puts "#{follower} just followed #{followed}"
+  end
+end
+
+followers.each do | follower |
+  following.each do | followed |
+    followed.follow(follower)
+    puts "#{followed} just followed #{follower}"
+  end
+end

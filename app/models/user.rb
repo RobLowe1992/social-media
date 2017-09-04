@@ -28,4 +28,8 @@ class User < ApplicationRecord
     following.include?(user)
   end
 
+  def feed
+    following_ids = "SELECT followed_id FROM friendships WHERE follower_id = :user_id"
+    Post.where("user_id IN (#{following_ids})", user_id: id).limit(10).order(created_at: :desc)
+  end
 end

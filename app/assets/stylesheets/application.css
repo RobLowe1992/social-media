@@ -554,9 +554,13 @@ ul.sidebar-menu li.active a i {
 }
 
 
-.like-btn {
+span.like-btn {
     position: absolute;
     left: 2em;
+}
+span.like-btn a:hover {
+    text-decoration: none;
+    cursor: pointer;
 }
 div.panel {
     position: relative;

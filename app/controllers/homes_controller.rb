@@ -4,7 +4,7 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.json
   def index
-      @homes = Home.all
+      # @user = User.find(current_user.id)
   end
 
   # # GET /homes/1

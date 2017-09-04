@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   resources :homes, only: :index
   resources :posts, except: :show
-  resources :friendships, only: [:create, :destroy, :index]resources :relationships,       only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy, :index]
   resources :users do
     member do
       get :following, :followers
