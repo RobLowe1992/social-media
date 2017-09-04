@@ -79,3 +79,4 @@ gem 'font-awesome-rails'
 
 # Name Generator
 gem 'faker', '~> 1.6', '>= 1.6.6'
+gem 'will_paginate', '~> 3.1.0'

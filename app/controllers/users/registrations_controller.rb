@@ -9,7 +9,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def show
     @User = User.find(params[:id])
-    @posts = Post.where(user_id: params[:id]).order(created_at: :desc)
+    @posts = @User.posts.paginate(page: params[:page]).order(created_at: :desc)
+  end
+
+  def custom
+    @User = User.where({first_name: params[:first_name].capitalize, last_name: params[:last_name].capitalize})[0]
+    @posts = Post.where(user_id: @User.id)
   end
 
   # POST /resource
@@ -30,6 +35,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # DELETE /resource
   def destroy
     super
+  end
+
+  def following
+    @following = @User.following
+  end
+
+  def followers
+    @followers = @User.followers
   end
 
   # GET /resource/cancel

@@ -1,44 +1,75 @@
-<main class="container">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form-group', html: { multipart: true}) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :first_Name, class: 'form-control' %><br />
-    <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form-group', html: { multipart: true}) do |f| %>
+          <%= devise_error_messages! %>
+
+  <div class="row main">
+    <div class="main-login main-center">
+
+        <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">First Name</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+      <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">Last Name</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <%= f.text_field :last_name, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="cols-sm-2 control-label">Your Email</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+              <%= f.email_field :email, class: 'form-control'%>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username" class="cols-sm-2 control-label">Image</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+              <%= f.file_field :image, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="cols-sm-2 control-label">Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: 'btn btn-primary' %>
+        </div>
+
+      </form>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :last_Name, class: 'form-control' %><br />
-    <%= f.text_field :last_name, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image, class: 'form-control' %><br />
-    <%= f.file_field :image, class: 'form-control' %>
-  </div>
-
-    <div class="field">
-    <%= f.label :email, class: 'form-control' %><br />
-    <%= f.email_field :email, class: 'form-control'%>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, class: 'form-control' %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_Confirmation, class: 'form-control' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up", class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-</main>
+  <% end %>

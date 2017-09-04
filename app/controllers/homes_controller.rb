@@ -4,7 +4,6 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.json
   def index
-      # @user = User.find(current_user.id)
   end
 
   # # GET /homes/1
@@ -20,6 +19,15 @@ class HomesController < ApplicationController
   # # GET /homes/1/edit
   # def edit
   # end
+
+  def create
+    @comment = Comment.new()
+    @comment.post_id = current_user.id
+    @comment.user_id = current_user.id
+
+    redirect_to homes_path
+  end
+
   # # POST /homes
   # # POST /homes.json
   # def create
@@ -69,5 +77,9 @@ class HomesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_params
       params.fetch(:home, {})
+    end
+
+    def comment_params
+      params.require(:comment).permit(:content, :user_id, :post_id)
     end
 end

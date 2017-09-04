@@ -1,8 +1,7 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= form_with(model: comment, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
       <% post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,19 +9,12 @@
       </ul>
     </div>
   <% end %>
-
-    <%= form_for @post, html: { multipart: true }  do |f| %>
+    <%= form_for @Comment  do |f| %>
         <div class="form-group">
-          <%= f.label 'Update status' %><br>
-          <%= f.text_area :content, class: 'form-control', autofocus: true,
-                          placeholder: 'What\'s up?' %>
-          <%= f.file_field :attachment, class: 'form-control' %>
+          <%= f.text_area :content, class: 'form-control', autofocus: true, placeholder: '...' %>
         </div>
         <div class="actions">
-          <%= f.submit :post, class: 'btn btn-primary'%>
+          <%= f.submit :comment, class: 'btn btn-primary'%>
         </div>
-
     <% end %>
-
-
 <% end %>

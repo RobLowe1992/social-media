@@ -26,3 +26,26 @@
         }
     }
 }
+
+.home-guest {
+  position: fixed;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: url("backdrop.jpeg");
+  background-size: cover;
+  background-position: 50% 50%;
+
+  div.identity {
+    z-index: 1;
+    position: fixed;
+    top: 50vh;
+    width: 100%;
+    text-align: center;
+
+     a {
+       margin-left: 1em;
+     }
+  }
+}

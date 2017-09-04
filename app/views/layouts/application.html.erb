@@ -66,25 +66,19 @@
                 </a>
               </li>
               <li class="sub">
-                <a href="<%= posts_path %>" class="">
+                <a href="<%= posts_path %>">
                   <i class="icon_document_alt"></i>
                   <span>Posts</span>
                 </a>
               </li>
               <li class="sub">
-                <a href="javascript:;" class="">
-                  <i class="icon_desktop"></i>
-                  <span>Followers</span>
-                </a>
-              </li>
-              <li class="sub">
-                <a href="" class="">
+                <a href="<%= followers_path %>">
                   <strong><%= current_user.followers.count%></strong>
                   Followers
                 </a>
               </li>
               <li class="sub">
-                <a href="" class="">
+                <a href="<%= following_path %>">
                   <strong><%= current_user.following.count%></strong>
                   Following
                 </a>

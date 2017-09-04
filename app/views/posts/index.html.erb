@@ -12,7 +12,7 @@
             <% end %>
           </a>
         </div>
-        <h4><a href="#" style="text-decoration:none;"><strong><%= @User.first_name %> <%= @User.last_name %></strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a>
+        <h4><a href="#" style="text-decoration:none;"><strong><%= @User.first_name %> <%= @User.last_name %></strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i><%= time_ago_in_words(post.created_at) %> ago</i></a>
               <% if current_user == @User %>
                 <%= link_to 'Edit', edit_post_path(@User), class: 'edit' %>
               <% end %></small></small>
@@ -38,9 +38,10 @@
         <hr>
         <div>
           <div class="pull-right btn-group-xs">
-            <a class="likes"><i class="glyphicon glyphicon-heart" aria-hidden="true" style="color:darkred"></i></a>
-            <a class="btn btn-default btn-xs"><i class="fa fa-retweet" aria-hidden="true"></i> Reshare</a>
-            <a class="btn btn-default btn-xs"><i class="fa fa-comment" aria-hidden="true"></i> Comment</a>
+            <span class="like-btn">
+              <a class="glyphicon glyphicon-heart" aria-hidden="true" style="color: darkred"></a>
+              <strong><%= post.likes %></strong>
+            </span>
           </div>
           <div class="pull-left">
             <p class="text-muted" style="margin-left:5px;">
@@ -51,20 +52,6 @@
           <br>
         </div>
         <hr>
-        <div class="media">
-          <div class="pull-left">
-            <a href="#">
-              <% if @User.image.url(:thumb) == '/images/thumb/missing.png' %>
-                  <%= image_tag 'profile.png', class: 'media-object img-circle', size: '35x35', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;'  %>
-              <% else %>
-                  <%= image_tag current_user.image.url(:thumb), class: 'media-object img-circle', size: '35x35', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;'  %>
-              <% end %>
-            </a>
-          </div>
-          <div class="media-body">
-            <textarea class="form-control" rows="1" placeholder="Comment"></textarea>
-          </div>
-        </div>
       </div>
     </div>
 <% end %>

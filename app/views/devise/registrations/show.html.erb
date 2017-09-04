@@ -13,7 +13,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="pull-left">
-          <a href="#">
+          <a href="<%= users_path @User%>">
             <% if @User.image.url(:thumb) == '/images/thumb/missing.png' %>
                 <%= image_tag 'profile.png', class: 'media-object img-circle', size: '50x50', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;' %>
             <% else %>
@@ -21,7 +21,7 @@
             <% end %>
           </a>
         </div>
-        <h4><a href="#" style="text-decoration:none;"><strong><%= @User.first_name %> <%= @User.last_name %></strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small></h4>
+        <h4><a href="<%= users_path post.user %>" style="text-decoration:none;color: #394a59;"><strong><%= @User.first_name %> <%= @User.last_name %></strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i><%= time_ago_in_words(post.created_at) %> ago</i></a></small></small></h4>
         <span>
           <div class="navbar-right">
             <div class="dropdown">
@@ -50,26 +50,11 @@
               <a class="glyphicon glyphicon-heart" aria-hidden="true" style="color: darkred"></a>
               <strong><%= post.likes %></strong>
             </span>
-            <a class="btn btn-default btn-xs"><i class="fa fa-retweet" aria-hidden="true"></i> Reshare</a>
-            <a class="btn btn-default btn-xs"><i class="fa fa-comment" aria-hidden="true"></i> Comment</a>
           </div>
           <br>
         </div>
         <hr>
-        <div class="media">
-          <div class="pull-left">
-            <a href="#">
-              <% if current_user.image.url(:medium) == '/images/medium/missing.png' %>
-                  <a href="<%= users_path current_user %>"><%= image_tag 'profile.png', class: 'media-object img-circle', size: '35x35', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;'  %></a>
-              <% else %>
-                  <a href="<%= users_path current_user %>"><%= image_tag current_user.image.url(:medium), class: 'media-object img-circle', size: '50x50', alt: 'User Avatar', style: 'margin-right:8px;margin-top:0;'  %></a>
-              <% end %>
-            </a>
-          </div>
-          <div class="media-body">
-            <textarea class="form-control" rows="1" placeholder="Comment"></textarea>
-          </div>
-        </div>
       </div>
     </div>
 <% end %>
+<%= will_paginate @posts %>
