@@ -7,3 +7,6 @@
 - Users can also be found at /users/:id  - - -  example(https://social-network-grubbable.herokuapp.com/users/53) 
 - Only you can edit your own profile.
 - When logged in and viewing someone else's profile a user can comment on another users status update.
+
+
+The site url is https://social-network-grubbable.herokuapp.com
